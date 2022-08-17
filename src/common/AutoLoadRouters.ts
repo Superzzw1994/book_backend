@@ -2,8 +2,6 @@ import path from 'path';
 import fs from 'fs';
 import Router from 'koa-router';
 import {AutoLoadRoutersConfig} from '@/types/common';
-import json from 'koa-json';
-import body from 'koa-body';
 
 class AutoLoadRouters {
 	// 单例
@@ -56,7 +54,6 @@ class AutoLoadRouters {
 
 	mountRoutesToRootRouter(router: Router, prefix: string = '') {
 		router.prefix(prefix);
-		router.use(json()).use(body());
 		this.routes.forEach(route => {
 			router.use(route.routes(), route.allowedMethods());
 		});
