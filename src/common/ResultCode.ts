@@ -28,4 +28,4 @@ class ResultCode {
 	}
 }
 
-export default ResultCode;
+export const {success, fail} = ResultCode;

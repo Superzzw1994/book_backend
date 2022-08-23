@@ -9,10 +9,8 @@ import Koa from 'koa';
 import json from 'koa-json';
 import body from 'koa-body';
 import Router from 'koa-router';
-import databaseConfig from './config/DatabaseConfig';
 import autoLoadRouters from './common/AutoLoadRouters';
 import GlobalException from './common/GlobalException';
-import ResultCode from './common/ResultCode';
 
 const app: Koa = new Koa();
 const router = new Router();
