@@ -6,6 +6,7 @@
  * @update: 2022-08-23 22:01
  */
 import {model} from '../model/UserInfo';
+import {FindAttributeOptions, Op} from 'sequelize';
 
 export type UserInfo = {
 	userid: number
@@ -14,22 +15,48 @@ export type UserInfo = {
 	address: string
 	valid: number
 }
+type prop = keyof UserInfo
+
+interface IProps {
+	[key: prop]: string;
+}
 
 class UserDao {
 	static addUser(userInfo: UserInfo) {
 		return model.create(userInfo);
 	}
 
-	// findUserInfo(username: string, password: string) {
-	// 	let sql = `select * from userinfo where 1=1`;
-	// 	if (!isEmpty(username)) {
-	// 		sql += `and username='${username}'`;
-	// 	}
-	// 	if (!isEmpty(password)) {
-	// 		sql += `and psw='${password}'`;
-	// 	}
-	// 	return baseDao.query<UserInfo[]>(sql);
-	// }
+	IProps;
+	[];
+
+	return<model>
+
+	static findAllUsers() {
+		return model.findAll({
+			raw: true
+		});
+	}
+
+) {
+
+	static findUserProps(attributes: FindAttributeOptions) {
+		return model.findAll({
+			raw: true,
+			attributes
+		});
+	}
+
+	static findUserByProps(props: object
+
+.
+
+	findOne({
+						raw: true,
+						where: {
+							[Op.or]: props
+						}
+					});
+}
 }
 
-export const {addUser} = UserDao;
+export const {addUser, findAllUsers, findUserProps, findUserByProps} = UserDao;
