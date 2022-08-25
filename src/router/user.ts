@@ -1,7 +1,7 @@
 import Router from 'koa-router';
 import {Context} from 'koa';
 import logger from '../common/LogUtil';
-import {addUser, findAllUsers, findUserByProps, findUserProps, UserInfo} from '../Dao/UserDao';
+import {addUser, findAllUsers, findUserByProps, findUserProps, UserInfo} from '../modules/userInfo/dao/UserDao';
 import {success} from '../common/ResultCode';
 import {FindAttributeOptions} from 'sequelize';
 
@@ -30,11 +30,11 @@ router.get('/findUserByProps/:username/:password', async (ctx: Context) => {
 	const {username = '', password = ''} = ctx.params;
 	ctx.body = success(await findUserByProps([
 		{
-			username: username as string
+			username
 		},
 		{
 			psw: password
-		}
+		},
 	]));
 });
 module.exports = router;
