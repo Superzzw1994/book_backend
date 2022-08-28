@@ -15,21 +15,11 @@ export type UserInfo = {
 	address: string
 	valid: number
 }
-// type prop = keyof UserInfo
-//
-// interface IProps {
-// 	[key: prop]: string;
-// }
 
 class UserDao {
 	static addUser(userInfo: UserInfo) {
 		return model.create(userInfo);
 	}
-
-	// IProps;
-	// [];
-	//
-	// return<model>
 
 	static findAllUsers() {
 		return model.findAll({

@@ -45,9 +45,14 @@ class BaseDao {
 			define: {
 				timestamps: false,
 				freezeTableName: true
+			},
+			pool: {
+				max: 300,
+				min: 50,
+				idle: 10000,
+				acquire: 1000
 			}
 		});
-		this.addModels();
 	}
 
 	addModels() {
@@ -56,4 +61,6 @@ class BaseDao {
 	}
 }
 
-export const {sequelize} = BaseDao.baseDao;
+const baseDao = BaseDao.baseDao;
+baseDao.addModels();
+export const {sequelize} = baseDao;

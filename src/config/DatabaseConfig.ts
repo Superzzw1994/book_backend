@@ -34,7 +34,7 @@ class DatabaseConfig {
 				host: 'localhost',
 				user: 'zzw1994529',
 				password: 'shzx1994529',
-				database: 'test',
+				database: 'dangdang',
 				port: 3306
 			},
 			prod: {
